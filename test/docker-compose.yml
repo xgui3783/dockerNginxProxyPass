@@ -1,0 +1,10 @@
+version : '3'
+services : 
+  nginx :
+    build : ..
+    ports : 
+      - '12345:80'
+  apache :
+    image : 'httpd'
+  node-test_1 :
+    build : ./node/.
