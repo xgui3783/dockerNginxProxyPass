@@ -2,4 +2,4 @@ FROM nginx
 ARG HOSTNAME=example.com
 COPY nginx-ssl.conf /etc/nginx/nginx.conf
 RUN echo 'Appending '$HOSTNAME' and www.'$HOSTNAME' to nginx.conf'
-RUN sed -i 's/\#\ server_name\n/server\_name '$HOSTNAME' www.'$HOSTNAME'/' /etc/nginx/nginx.conf
+RUN sed '-i' 's/\# server_name/server\_name '$HOSTNAME' www'.$HOSTNAME';/' '/etc/nginx/nginx.conf'
