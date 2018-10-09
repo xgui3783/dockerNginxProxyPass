@@ -1,0 +1,14 @@
+version : '3'
+services : 
+  nginx :
+    build : 
+      context : ..
+      dockerfile : Dockerfile-ssl
+      args : 
+        - HOSTNAME=${HOSTNAME-example.com}
+    ports : 
+      - '12345:80'
+  apache :
+    image : 'httpd'
+  node-test_1 :
+    build : ./node/.

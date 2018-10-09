@@ -26,3 +26,7 @@ http://localhost:12345/${container_name}/${port_number}/${forwarded_path}
 ## nb 
 
 redirect/absolute path acts weirdly
+
+## ssl with letsencrypt
+
+use `docker-compose-ssl.yml` instead, and set environment variable`HOST=example.com`
