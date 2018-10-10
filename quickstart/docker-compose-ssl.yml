@@ -7,7 +7,8 @@ services :
       args : 
         - HOSTNAME=${HOSTNAME-example.com}
     ports : 
-      - '12345:80'
+      - '80:80'
+      - '443:443'
   apache :
     image : 'httpd'
   node-test_1 :

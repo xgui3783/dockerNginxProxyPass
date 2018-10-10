@@ -1,5 +1,7 @@
 FROM nginx
 ARG HOSTNAME=example.com
 COPY nginx-ssl.conf /etc/nginx/nginx.conf
+RUN echo 'deb http://ftp.debian.org/debian stretch-backports main' > /etc/apt/sources.list.d/nginx-backports.list
+RUN apt-get update && apt-get install python-certbot-nginx -t stretch-backports -y
 RUN echo 'Appending '$HOSTNAME' and www.'$HOSTNAME' to nginx.conf'
 RUN sed '-i' 's/\# server_name/server\_name '$HOSTNAME' www'.$HOSTNAME';/' '/etc/nginx/nginx.conf'
